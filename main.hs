@@ -17,3 +17,8 @@ myLength (_:xs) = 1 + myLength xs
 -- Problem 5
 myReverse (x:[]) = [x]
 myReverse (x:xs) = myReverse xs ++ [x]
+
+-- Problem 6
+isPalindrome [] = True
+isPalindrome (x:[]) = True
+isPalindrome (xs) = ((head xs) == (last xs)) && (isPalindrome (init (tail xs)))
