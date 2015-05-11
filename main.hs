@@ -9,3 +9,7 @@ myButLast (_:xs) = myButLast xs
 -- Problem 3
 elementAt (x:_) 1 = x
 elementAt (_:xs) n = elementAt xs (n-1)
+
+-- Problem 4
+myLength [] = 0
+myLength (_:xs) = 1 + myLength xs
