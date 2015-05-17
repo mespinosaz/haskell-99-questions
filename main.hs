@@ -22,3 +22,8 @@ myReverse (x:xs) = myReverse xs ++ [x]
 isPalindrome [] = True
 isPalindrome (x:[]) = True
 isPalindrome (xs) = ((head xs) == (last xs)) && (isPalindrome (init (tail xs)))
+
+-- Problem 8
+whatever [] x = [x]
+whatever xs x = if last xs == x then xs else xs ++ [x]
+compress (x) = foldl (whatever) [] x
