@@ -54,3 +54,7 @@ decodeModified [] = []
 decodeModified ((Single x):xs) = [x] ++ decodeModified xs
 decodeModified ((Multiple 0 x):xs) = []
 decodeModified ((Multiple n x):xs) = decodeModified [Single x] ++ decodeModified [Multiple (n-1) x] ++ decodeModified xs
+
+-- Problem 14
+dupli [] = []
+dupli (x:xs) = [x] ++ [x] ++ dupli xs
