@@ -40,4 +40,5 @@ pack [] = []
 pack (x:xs) = [[x] ++ takeWhile (== x) xs] ++ pack (dropWhile (== x) xs)
 
 -- Problem 10
-encode x = map (\x -> (myLength x, head x)) (pack x)
+encode x = map (\y -> (myLength y, head y)) (pack x)
+
