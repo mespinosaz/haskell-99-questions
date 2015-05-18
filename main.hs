@@ -34,3 +34,7 @@ flatten (List []) = []
 whatever [] x = [x]
 whatever xs x = if last xs == x then xs else xs ++ [x]
 compress (x) = foldl (whatever) [] x
+
+-- Problem 9
+pack [] = []
+pack (x:xs) = [[x] ++ takeWhile (== x) xs] ++ pack (dropWhile (== x) xs)
