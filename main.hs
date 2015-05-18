@@ -58,3 +58,7 @@ decodeModified ((Multiple n x):xs) = decodeModified [Single x] ++ decodeModified
 -- Problem 14
 dupli [] = []
 dupli (x:xs) = [x] ++ [x] ++ dupli xs
+
+-- Problem 15
+repli [] n = []
+repli (x:xs) n = [x | i <- [1..n]] ++ repli xs n
