@@ -23,6 +23,13 @@ isPalindrome [] = True
 isPalindrome (x:[]) = True
 isPalindrome (xs) = ((head xs) == (last xs)) && (isPalindrome (init (tail xs)))
 
+-- Problem 7
+data NestedList a = Elem a | List [NestedList a] deriving (Show)
+flatten :: NestedList a -> [a]
+flatten (Elem x) = [x]
+flatten (List (x:xs)) = flatten x ++ flatten (List xs)
+flatten (List []) = []
+
 -- Problem 8
 whatever [] x = [x]
 whatever xs x = if last xs == x then xs else xs ++ [x]
