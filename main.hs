@@ -47,3 +47,10 @@ data CountableElement a = Multiple Int a | Single a
     deriving (Show)
 encodeModified :: Eq a => [a] -> [CountableElement a]
 encodeModified x = map (\y -> if (myLength y) > 1 then Multiple (myLength y) (head y) else Single (head y)) (pack x)
+
+-- Problem 12
+decodeModified :: Eq a => [CountableElement a] -> [a]
+decodeModified [] = []
+decodeModified ((Single x):xs) = [x] ++ decodeModified xs
+decodeModified ((Multiple 0 x):xs) = []
+decodeModified ((Multiple n x):xs) = decodeModified [Single x] ++ decodeModified [Multiple (n-1) x] ++ decodeModified xs
