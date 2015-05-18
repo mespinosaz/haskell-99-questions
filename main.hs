@@ -38,3 +38,6 @@ compress (x) = foldl (whatever) [] x
 -- Problem 9
 pack [] = []
 pack (x:xs) = [[x] ++ takeWhile (== x) xs] ++ pack (dropWhile (== x) xs)
+
+-- Problem 10
+encode x = map (\x -> (myLength x, head x)) (pack x)
