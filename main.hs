@@ -42,3 +42,8 @@ pack (x:xs) = [[x] ++ takeWhile (== x) xs] ++ pack (dropWhile (== x) xs)
 -- Problem 10
 encode x = map (\y -> (myLength y, head y)) (pack x)
 
+-- Problem 11
+data CountableElement a = Multiple Int a | Single a
+    deriving (Show)
+encodeModified :: Eq a => [a] -> [CountableElement a]
+encodeModified x = map (\y -> if (myLength y) > 1 then Multiple (myLength y) (head y) else Single (head y)) (pack x)
