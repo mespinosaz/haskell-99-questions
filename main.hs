@@ -82,3 +82,6 @@ dropEvery xs n = take (n-1) xs ++ dropEvery (drop n xs) n
 -- Problem 17
 split :: Eq a => [a] -> Int -> [[a]]
 split xs n = [(take n xs), (drop n xs)]
+
+-- Problem 18
+slice xs a b = take (b-a+1) (drop a xs)
