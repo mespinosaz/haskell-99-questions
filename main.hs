@@ -86,3 +86,15 @@ split xs n = [(take n xs), (drop n xs)]
 -- Problem 18
 slice :: Eq a => [a] -> Int -> Int -> [a]
 slice xs a b = take (b-a+1) (drop a xs)
+
+-- Problem 19
+rotateLeft :: Eq a => [a] -> Int -> [a]
+rotateLeft xs 0 = xs
+rotateLeft (x:xs) n = rotateLeft (xs ++ [x]) (n-1)
+
+rotateRight :: Eq a => [a] -> Int -> [a]
+rotateRight xs 0 = xs
+rotateRight xs n = rotateRight ([myLast xs] ++ init xs) (n-1)
+
+rotate :: Eq a => [a] -> Int -> [a]
+rotate xs n = if (n < 0) then rotateRight xs (abs n) else rotateLeft xs n
