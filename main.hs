@@ -98,3 +98,12 @@ rotateRight xs n = rotateRight ([myLast xs] ++ init xs) (n-1)
 
 rotate :: Eq a => [a] -> Int -> [a]
 rotate xs n = if (n < 0) then rotateRight xs (abs n) else rotateLeft xs n
+
+-- Problem 20
+dropAt :: Eq a => Int -> [a] -> [a]
+dropAt 0 xs = xs
+dropAt 1 (x:xs) = xs
+dropAt n (x:xs) = [x] ++ dropAt (n-1) (xs)
+
+removeAt :: Eq a => Int -> [a] -> (a, [a])
+removeAt n xs = (elementAt xs n, dropAt n xs)
