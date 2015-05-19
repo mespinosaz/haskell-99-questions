@@ -78,3 +78,7 @@ repli (x:xs) n = [x | i <- [1..n]] ++ repli xs n
 dropEvery :: Eq a => [a] -> Int -> [a]
 dropEvery [] _ = []
 dropEvery xs n = take (n-1) xs ++ dropEvery (drop n xs) n
+
+-- Problem 17
+split :: Eq a => [a] -> Int -> [[a]]
+split xs n = [(take n xs), (drop n xs)]
