@@ -84,4 +84,5 @@ split :: Eq a => [a] -> Int -> [[a]]
 split xs n = [(take n xs), (drop n xs)]
 
 -- Problem 18
+slice :: Eq a => [a] -> Int -> Int -> [a]
 slice xs a b = take (b-a+1) (drop a xs)
