@@ -73,3 +73,8 @@ dupli (x:xs) = [x] ++ [x] ++ dupli xs
 repli :: Eq a => [a] -> Int -> [a]
 repli [] n = []
 repli (x:xs) n = [x | i <- [1..n]] ++ repli xs n
+
+-- Problem 16
+dropEvery :: Eq a => [a] -> Int -> [a]
+dropEvery [] _ = []
+dropEvery xs n = take (n-1) xs ++ dropEvery (drop n xs) n
