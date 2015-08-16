@@ -113,3 +113,7 @@ insertAt :: Eq a => a -> [a] -> Int -> [a]
 insertAt _ [] _ = []
 insertAt a xs 1 = a : xs
 insertAt a (x:xs) n = x : insertAt a xs (n-1)
+
+-- PRoblem 22
+range :: Int -> Int -> [Int]
+range x y = [x .. y]
