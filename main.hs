@@ -107,3 +107,9 @@ dropAt n (x:xs) = [x] ++ dropAt (n-1) (xs)
 
 removeAt :: Eq a => Int -> [a] -> (a, [a])
 removeAt n xs = (elementAt xs n, dropAt n xs)
+
+-- Problem 21
+insertAt :: Eq a => a -> [a] -> Int -> [a]
+insertAt _ [] _ = []
+insertAt a xs 1 = a : xs
+insertAt a (x:xs) n = x : insertAt a xs (n-1)
